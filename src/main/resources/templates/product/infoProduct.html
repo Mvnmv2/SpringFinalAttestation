@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о товаре:</title>
+    <link th:href="@{/css/infoProduct.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="title_block">
+    <div class="main_title">
+        <h3>Информация о товаре:</h3>
+    </div>
+    <div class="btn_out">
+        <a class="btn_out-input" href="/index">В магазин</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="itc-slider" data-slider="itc-slider" data-loop="true" data-autoplay="false">
+        <div class="itc-slider__wrapper">
+            <div class="itc-slider__items">
+
+                <div class="itc-slider__item" th:each="img : ${product.getImageList()}">
+                    <img th:src="'/img/' + ${img.getFileName()}">
+                </div>
+
+            </div>
+        </div>
+        <button class="itc-slider__btn itc-slider__btn_prev"></button>
+        <button class="itc-slider__btn itc-slider__btn_next"></button>
+    </div>
+</div>
+<!--container-->
+
+<div class="info_block">
+    <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
+    <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+    <p th:text="'Цена: ' + ${product.getPrice()} + ' ₽'"></p>
+    <p th:text="'Склад: ' + ${product.getWarehouse()}"></p>
+    <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
+    <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
+
+    <!--<div th:each="img : ${product.getImageList()}">-->
+    <!--    <img th:src="'/img/' + ${img.getFileName()}" width="300px">-->
+    <!--</div>-->
+
+</div>
+
+<script th:src="@{/js/slider.js}"></script>
+</body>
+</html>

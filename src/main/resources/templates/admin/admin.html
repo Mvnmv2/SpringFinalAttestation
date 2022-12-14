@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Админ панель</title>
+<!--    <link rel="stylesheet" href="admin.css">-->
+    <link th:href="@{/css/admin.css}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container">
+    <div class="title_block">
+        <div class="main_title">
+            <h3>Личный кабинет администратора</h3>
+        </div>
+
+        <div class="btn_out">
+            <form th:method="post" th:action="@{/logout}">
+                <div class="castom-input">
+                    <button class="btn_out-input" type="submit">
+                        <div class="btn_out-img" alt=""></div>
+                        <span class="btn_out-text">Выйти</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="button_block">
+        <a class="ssilka" href="/admin/product/add">
+            <div class="add_product">
+                <i class="fa-solid fa-plus fa-2x"></i>
+                <span>Добавить товар</span>
+            </div>
+        </a>
+        <a class="ssilka" href="/admin/users/info">
+            <div class="show_users">
+                <i class="fa-solid fa-user fa-2x"></i>
+                <span>Посмотреть пользователей</span>
+            </div>
+        </a>
+        <a class="ssilka" href="/admin/orders/info">
+            <div class="show_orders">
+                <i class="fa-solid fa-cart-shopping fa-2x"> </i>
+                <span>Посмотреть заказы</span>
+            </div>
+        </a>
+    </div>
+
+    <Section class="section_products">
+
+        <div class="products_title">
+            <h3>Каталог товаров:</h3>
+        </div>
+
+        <div class="container_products">
+            <div class="cart" th:each="product : ${products}">
+                <div class="img_block">
+                    <img class="cart_img" th:src="'/img/' + ${product.imageList[0].getFileName()}" alt="">
+                    <div class="cart_info">
+                        <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
+                        <p th:text="'Цена: ' + ${product.getPrice()} + ' ₽'"></p>
+                        <p th:text="'Склад: ' + ${product.getWarehouse()}"></p>
+                        <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
+                        <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="cart_description">
+                    <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+                </div>
+                <div class="cart_buttons">
+                    <a class="custom-btn btn-1" th:href="@{/admin/product/edit/{id} (id=${product.getId()})}">Редактировать товар</a>
+                    <a class="custom-btn btn-1" th:href="@{/admin/product/delete/{id} (id=${product.getId()})}">Удалить товар</a>
+                </div>
+
+            </div>
+            <!--cart-->
+        </div>
+        <!--container_products-->
+
+    </Section>
+    <!--section_products-->
+
+
+
+</div>
+
+<script src="https://kit.fontawesome.com/467ded5ee6.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

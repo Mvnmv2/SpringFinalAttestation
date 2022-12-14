@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о заказах</title>
+    <link th:href="@{/css/infoOrders.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--<h3>Католог заказов: </h3>-->
+
+<!--<form th:method="POST" th:action="@{/admin/orders/search}">-->
+<!--    <legend>Выберете параметры для сортировки, поиска, фильтрации</legend>-->
+<!--    <br>-->
+<!--    <label for="search">Поиск по наименованию</label>-->
+<!--    <input name="value" type="search" id="search">-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <input type="submit" value="Наити">-->
+<!--</form>-->
+<!--<hr>-->
+<!--<br>-->
+<!--<h3>Результат поиска:</h3>-->
+<!--<div th:each="order : ${orderSearch}">-->
+<!--    <p th:text="'Номер заказа: ' + ${order.getNumber()}"></p>-->
+<!--    <p th:text="'Количество: ' + ${order.getCount()}"></p>-->
+<!--    <p th:text="'Стоимость: ' + ${order.getPrice()} + ' ₽'"></p>-->
+<!--    <p th:text="'Время оформления: ' + ${order.getDateTime()}"></p>-->
+<!--    <p th:text="'Статус: ' + ${order.getStatus()}"></p>-->
+<!--</div>-->
+<!--<hr>-->
+<!--<br>-->
+
+<!--<h3>Заказы:</h3>-->
+<!--<div th:each="order : ${orders}">-->
+<!--    <p th:text="'Номер заказа: ' + ${order.getNumber()}"></p>-->
+<!--    <p th:text="'Количество: ' + ${order.getCount()}"></p>-->
+<!--    <p th:text="'Стоимость: ' + ${order.getPrice()} + ' ₽'"></p>-->
+<!--    <p th:text="'Время оформления: ' + ${order.getDateTime()}"></p>-->
+<!--    <p th:text="'Статус: ' + ${order.getStatus()}"></p>-->
+
+<!--    <span>-->
+<!--        <a th:href="@{/admin/orders/{id}(id=${order.getId()})}">Редактировать cтатус</a>-->
+<!--    </span>-->
+
+
+<!--    <p th:text="'Товар: ' + ${order.getProduct().getTitle()}"></p>-->
+<!--    <p th:text="'Покупатель: ' + ${order.getPerson().getLogin()}"></p>-->
+<!--    <br>-->
+<!--    <a th:href="@{/order/delete/{id}(id=${order.getId()})}">Удалить</a>-->
+<!--    <hr>-->
+<!--</div>-->
+
+<div class="container">
+    <div class="title_block">
+        <div class="main_title">
+            <h3>Каталог заказов:</h3>
+        </div>
+
+        <div class="btn_out">
+            <a class="btn_out" href="/admin">Назад</a>
+        </div>
+    </div>
+
+
+    <form th:method="POST" th:action="@{/admin/orders/search}">
+        <legend>Выберете параметры для поиска </legend>
+        <br>
+        <label for="search">Поиск по наименованию:</label>
+        <input name="value" type="search" id="search">
+        <br>
+        <br>
+        <input class="search" type="submit" value="Наити">
+    </form>
+    <hr>
+    <div class="title">
+        <h3>Результат поиска:</h3>
+    </div>
+
+    <div class="order_info" th:each="order : ${orderSearch}">
+        <p th:text="'Номер заказа: ' + ${order.getNumber()}"></p>
+        <p th:text="'Количество: ' + ${order.getCount()}"></p>
+        <p th:text="'Стоимость: ' + ${order.getPrice()} + ' ₽'"></p>
+        <p th:text="'Время оформления: ' + ${order.getDateTime()}"></p>
+        <p th:text="'Статус: ' + ${order.getStatus()}"></p>
+    </div>
+    <hr>
+
+    <div class="title">
+        <h3>Заказы:</h3>
+    </div>
+
+    <div class="order_info" th:each="order : ${orders}">
+        <p th:text="'Номер заказа: ' + ${order.getNumber()}"></p>
+        <p th:text="'Количество: ' + ${order.getCount()}"></p>
+        <p th:text="'Стоимость: ' + ${order.getPrice()} + ' ₽'"></p>
+        <p th:text="'Время оформления: ' + ${order.getDateTime()}"></p>
+        <div class="status">
+            <p th:text="'Статус: ' + ${order.getStatus()}"></p>
+
+            <div class="btn upd">
+                <a th:href="@{/admin/orders/{id}(id=${order.getId()})}">Редактировать cтатус</a>
+            </div>
+        </div>
+        <p th:text="'Товар: ' + ${order.getProduct().getTitle()}"></p>
+        <p th:text="'Покупатель: ' + ${order.getPerson().getLogin()}"></p>
+        <div class="btn del">
+            <a th:href="@{/order/delete/{id}
+            (id=${order.getId()})}">Удалить</a>
+        </div>
+        <hr>
+    </div>
+
+</div>
+
+</body>
+</html>

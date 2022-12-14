@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <link th:href="@{/css/infoUsers.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="container">
+    <div class="title_block">
+        <div class="main_title">
+            <h3>Пользователи:</h3>
+        </div>
+
+        <div class="btn_out">
+            <a class="btn_out" href="/admin">Назад</a>
+        </div>
+    </div>
+</div>
+
+<div th:each="person : ${persons}">
+
+    <div class="info_person">
+        <p th:text="'Логин пользователя: ' + ${person.getLogin()}">Логин пользователя: admin</p>
+        <p th:text="'Пароль пользователя: ' + ${person.getPassword()}">Пароль пользователя:
+            $2a$10$mXucOj6fTpqKH1hxCDROC.W9Y93G6Ei9Sl9s2kn3/UNM0K/lxHCWe</p>
+        <p th:text="'Роль пользователя: ' + ${person.getRole()}">Роль пользователя: ROLE_ADMIN</p>
+    </div>
+
+    <div class="btn_block">
+        <div class="order">
+            <a th:href="@{/admin/editUser/{id} (id=${person.getId()})}">Редактировать пользователя</a>
+        </div>
+        <div class="order">
+            <a th:href="@{/admin/user/delete/{id} (id=${person.getId()})}">Удалить пользователя</a>
+        </div>
+    </div>
+    <hr>
+
+</div>
+</body>
+</html>

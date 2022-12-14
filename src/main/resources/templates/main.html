@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Snowboard shop</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css">
+    <link rel="icon" href="@{/img/icon.png}">
+
+</head>
+
+<body class="body">
+<header class="header">
+    <div class="container__header">
+        <div class="header__inner">
+            <div class="header__logo"></div>
+            <nav class="nav">
+                <div>
+                    <a href="/index">магазин</a>
+                    <a href="#">команда</a>
+                    <a href="#">новости</a>
+                    <a href="#">доставка</a>
+                    <a href="#">компания</a>
+                    <a href="#">контакты</a>
+                </div>
+
+
+            </nav>
+
+        </div>
+        <div>
+            <a class="enter" href="/index">войти</a>
+            <span class="header__icon">
+                <i class="fa-regular fa-user"></i>
+            </span>
+
+        </div>
+    </div>
+</header>
+
+
+<div class="intro">
+    <div class="container">
+        <div class="intro__inner">
+            <h1 class="intro__title">Run of Everywhere!</h1>
+
+            <a class="btn" href="/product">В магазин</a>
+        </div>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="section__header">
+            <h2 class="section__title">Сноуборды</h2>
+            <h3 class="section__suptitle">Выбери доску для себя!</h3>
+        </div>
+
+    </div>
+</section>
+
+<div class="carusel">
+    <h2 class="carusel__suptitle">Сноуборды extreme Series</h2>
+</div>
+
+
+<section class="company">
+    <div class="container">
+        <div class="company__inner">
+            <h1 class="company__title">The Mountains
+                Snowboarding ®</h1>
+            <p class="company__text">Несмотря на то, что сноубординг — относительно молодой вид спорта, у него довольно
+                яркая история, насыщенная многочисленными фактами. По мере подготовки к предстоящему сезону, хотелось бы
+                привести ряд примечательных фактов.
+                Сноуборд был изобретен в 1960-х годах и изначально был известен под названием
+                “снерфинг”. Да, вы правильно прочитали.
+                Человек по имени Шерман Поппен, инженер, живущий в Маскегоне, штат Мичиган, связал
+                две лыжи вместе и добавил веревку для рулевого управления. Свое изобретение он подарил дочери, которой
+                очень понравился такой подарок. Его жена называла придуманный снаряд снерфером, или “снежным серфингом”.
+                До начала 1980-х катание на сноуборде на курортах США было запрещено.
+                Первый профессиональный чемпионат в данной дисциплине состоялся только в 1982, был
+                организован Полом Грэвиссом, в Вермонте. В соревновании приняли участие Том Бертон, Том Симс
+                и многие другие знаменитости. Данный вид спорта был официально зарегистрирован в Зимних Олимпийских
+                играх только в 1998 году.</p>
+        </div>
+    </div>
+</section>
+
+
+<!--<section class="features">-->
+<!--    <div class="container">-->
+<!--        <div class="features__inner">-->
+
+<!--            <h1 class="features__title">features</h1>-->
+<!--            <div class="features__video">-->
+
+<!--                <div class="video__container">-->
+<!--                    <iframe class="video" src="https://www.youtube.com/embed/QjrCw6SbPgM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+
+<!--                    <div class="video__name">Born Identity: Bringing Burton Hardgoods to Life</div>-->
+<!--                </div>-->
+
+<!--                <div class="video__container">-->
+<!--                    <iframe class="video" src="https://www.youtube.com/embed/oGSlMHlLdTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+
+<!--                    <div class="video__name">Jeremy Jones: On That Street Grind</div>-->
+<!--                </div>-->
+
+<!--                <div video__container>-->
+<!--                    <video class="video" class="backgroundvideo" poster="./assets/images/poster3.jpg" muted loop controls="controls">-->
+<!--                        <source src="./assets/video/video3.mp4">-->
+<!--                    </video>-->
+<!--                    <div class="video__name">Burton’s Tokyo Rail Days Recap</div>-->
+<!--                </div>-->
+
+<!--                <div class="features__video">-->
+<!--                    <div class="video__container">-->
+<!--                        <video class="video" class="backgroundvideo" poster="./assets/images/poster4.jpg" muted loop controls="controls">-->
+<!--                            <source src="./assets/video/video4.mp4">-->
+<!--                        </video>-->
+<!--                        <div class="video__name">Burton’s Tokyo Rail Days Preview</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="foter__inner ">
+
+            <div class="footer__col">
+                <h3 class="footer__col_title">Товары</h3>
+                <ul class="footer__col__list">
+                    <li>Мужские</li>
+                    <li>Женские</li>
+                    <li>Детские</li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__col_title">О нас</h3>
+                <ul class="footer__col__list">
+                    <li>Карьера и вакансии</li>
+                    <li>Спонсоры</li>
+                    <li>Комманда</li>
+                    <li>Запрос каталога/Загрузка</li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__col_title">Служба поддержки</h3>
+                <ul class="footer__col__list">
+                    <li>Свяжитесь с нами</li>
+                    <li>Доставка и отслеживание заказов</li>
+                    <li>Возвраты</li>
+                    <li>Гарантия</li>
+                    <li>Запасные части и детали</li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__col_title">Информация</h3>
+
+                <form class="subscribe" action="/" method="post">
+                    <input class="subscribe__input" type="text" name="" id="name" placeholder="Введите имя">
+                    <button class="subscribe__button" type="submit">Go</button>
+                </form>
+
+                <form class="subscribe" action="/" method="post">
+                    <input class="subscribe__input" type="text" name="" id="name" placeholder="Введите фамилию">
+                    <button class="subscribe__button" type="submit">Go</button>
+                </form>
+
+                <form class="subscribe" action="/" method="post">
+                    <input class="subscribe__input" type="email" name="" id="name" placeholder="Введите email">
+                    <button class="subscribe__button" type="submit">Go</button>
+                </form>
+
+                <div class="footer__social">
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div> <!--foter__inner-->
+
+
+        <div class="copyright">
+            <div class="copyright__text">© 2022 Mountains Snowboards</div>
+            <div class="copyright__region">
+                <span class="copyright__flag"></span>
+                <span>Сменить регион</span>
+            </div>
+        </div>
+
+
+    </div> <!--container-->
+
+</footer>
+
+
+<!--Подключаем иконки-->
+<script src="https://kit.fontawesome.com/467ded5ee6.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

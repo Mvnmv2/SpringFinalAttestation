@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    width: 100vh;
+    background: linear-gradient(120deg, #6d91a5 0%, #bbc6ce 30%, #c2cdd2 55%, #ad8787 90%);
+
+
+}
+
+/*title_block*/
+
+.title_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+.main_title {
+    font-family: sans-serif;
+    color: white;
+    font-size: 35px;
+    margin: 20px 20px 20px 35px;
+
+}
+
+/*btn_out*/
+
+.btn_out {
+    width: 150px;
+
+}
+
+.btn_out-img {
+
+    height: 35px;
+    font-size: 15px;
+    background-image: url("../img/img/logout.png");
+    background-size: cover;
+}
+
+
+.btn_out {
+    color: white;
+    font-family: sans-serif;
+    font-size: 25px;
+    margin-right: 55px;
+    font-size: 35px;
+    text-decoration: none;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+
+
+
+form {
+    width: 800px;
+    height: 800px;
+    margin-left: 20px;
+    padding: 0 20px;
+    font-family: sans-serif;
+    color: white;
+}
+
+label {
+    display: inline-block;
+    margin-right: 10px;
+    width: 250px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
+input,
+textarea,
+option {
+    width: 250px;
+}
+
+form p {
+    margin-bottom: 10px;
+}
+
+.img {
+    margin-bottom: 10px;
+    font-size: 15px;
+
+}
+
+.upd {
+    width: 200px;
+    font-size: 20px;
+    padding: 10px;
+}

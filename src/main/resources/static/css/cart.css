@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+    background: url("../img/img/bgProduct.jpg");
+    background-size: cover;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+/* Container*/
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.order_title {
+    color: white;
+    font-family: sans-serif;
+    font-size: 30px;
+    padding: 20px;
+}
+
+/*title_block*/
+
+.title_block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_title {
+    color: white;
+    font-family: sans-serif;
+    font-size: 30px;
+    margin: 30px;
+}
+
+.btn_out {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-right: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.btn_out a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 25px;
+    background-color: #71b7f4;
+    border-radius: 25px;
+}
+
+/*container_cart*/
+
+.container_cart {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 30px;
+    width: 600px;
+}
+
+.cart {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    column-gap: 20px;
+    border: 1px solid white;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.cart_info {
+    padding-top: 20px;
+    padding-left: 35px;
+}
+
+.cart_img {
+    width: 115%;
+    height: 160pt;
+}
+
+.cart_info p {
+    color: black;
+    font-size: 19px;
+}
+
+.btn_del {
+    width: 100px;
+    height: 30px;
+    background-color: #71b7f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+    padding: 20px 10px;
+    font-size: 16px;
+}
+
+
+.total_title {
+    color: #333;
+    font-family: sans-serif;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.order {
+    width: 150px;
+    height: 50px;
+    background-color: #71b7f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+    padding: 20px 10px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.order a, .btn_del a, .cart_info a {
+    color: white;
+    text-decoration: none;
+}
+
+.order:hover,
+.btn_del:hover,
+.btn_out a:hover {
+    background-color: #2397fa;
+    transition: all .2s;
+}
+
+.order:active,
+.btn_del:active,
+.btn_out a:active {
+    background-color: #0077ef;
+    transition: all .2s;
+}

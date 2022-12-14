@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Реактирование пользователя</title>
+    <link th:href="@{/css/editUser.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<!--<h3>Редактирование роли пользователя</h3>-->
+
+
+<!--<form method="POST" th:action="@{/admin/editUser/{id}(id=${editUser.getId()})}" th:object="${editUser}">-->
+<!--    <label for="login">Введите логин: </label>-->
+<!--    <input type="text" th:field="*{login}" id="login">-->
+<!--    <div style="color: red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div>-->
+<!--    <br>-->
+<!--    <label for="password">Введите пароль: </label>-->
+<!--    <input type="text" th:field="*{password}" id="password" disabled>-->
+<!--    <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>-->
+<!--    <br>-->
+<!--    <select name="role" th:field="*{role}" id="role">-->
+<!--        <option th:text="'ROLE_USER'" th:value="'ROLE_USER'"></option>-->
+<!--        <option th:text="'ROLE_SELLER'" th:value="'ROLE_SELLER'"></option>-->
+<!--        <option th:text="'ROLE_ADMIN'" th:value="'ROLE_ADMIN'"></option>-->
+<!--    </select>-->
+<!--    <div style="color: red" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></div>-->
+
+
+<!--    <input type="submit" value="Редактировать">-->
+<!--</form>-->
+
+<div class="container">
+    <div class="title_block">
+        <div class="main_title">
+            <h3>Редактирование пользователя</h3>
+        </div>
+
+        <div class="btn_out">
+            <a class="btn_out" href="/admin">Назад</a>
+        </div>
+    </div>
+</div>
+
+<form method="POST" th:action="@{/admin/editUser/{id}(id=${editUser.getId()})}" th:object="${editUser}">
+
+    <label for="login">Введите логин: </label>
+    <input type="text" th:field="*{login}" id="login">
+    <div style="color: red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div>
+
+    <div>
+        <label for="password">Введите пароль: </label>
+        <input type="text" th:field="*{password}" id="password">
+        <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    </div>
+
+    <div>
+        <label for="role">Введите роль: </label>
+        <select name="role" th:field="*{role}" id="role">
+            <option th:text="'ROLE_USER'" th:value="'ROLE_USER'"></option>
+            <option th:text="'ROLE_SELLER'" th:value="'ROLE_SELLER'"></option>
+            <option th:text="'ROLE_ADMIN'" th:value="'ROLE_ADMIN'"></option>
+        </select>
+        <div style="color: red" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></div>
+    </div>
+
+
+    <div>
+        <input class="upd" type="submit" value="Редактировать">
+    </div>
+</form>
+
+
+</body>
+</html>

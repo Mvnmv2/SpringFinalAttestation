@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container__header">
+        <div class="header__inner">
+            <div class="header__logo"></div>
+            <nav class="nav">
+                <div>
+                    <a href="/index">магазин</a>
+                    <a href="#">команда</a>
+                    <a href="#">новости</a>
+                    <a href="#">доставка</a>
+                    <a href="#">компания</a>
+                    <a href="#">контакты</a>
+                </div>
+
+
+            </nav>
+
+        </div>
+
+        <div class="orderdAndCart">
+
+            <div>
+                <form method="get" th:action="@{/cart}">
+                    <div class="castom-input">
+                        <button class="btn__out-input" type="submit">
+                            <span class="btn__out-text cartText">Корзина</span>
+                            <span class="header__icon">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="castom-input">
+                <form method="get" th:action="@{/orders}">
+                    <div class="castom-input">
+                        <button class="btn__out-input" type="submit">
+                            <span class="btn__out-text ordersText">Заказы</span>
+                            <span class="header__icon">
+                                <i class="fa-solid fa-list-check"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <form th:method="post" th:action="@{/logout}">
+                <div class="castom-input">
+                    <button class="btn__out-input" type="submit">
+                        <span class="btn__out-text">Выйти</span>
+                        <span class="header__icon">
+                          <i class="fa-solid fa-arrow-right-from-bracket fa-2x"></i>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!--container__header-->
+</header>
+
+
+<div class="products_title">
+    <h3>Личный кабинет пользователя</h3>
+</div>
+
+
+<form class="seach_block" th:method="POST" th:action="@{/index/search}">
+    <fieldset>
+        <legend>Выберите параметры для сортировки, поиска, фильтрации</legend>
+        <br>
+        <label for="search">Поиск по наименованию</label>
+        <input type="search" name="search" th:value="*{value_search}" id="search">
+        <br>
+        <p>Цена, ₽</p>
+        <label for="ot">От</label>
+        <input type="text" name="ot" th:value="*{value_price_ot}" id="ot">
+        <label for="do">До</label>
+        <input type="text" name="do" th:value="*{value_price_do}" id="do">
+        <br>
+        <br>
+        <input type="radio" id="ascending_price" name="price" value="sorted_by_ascending_price">
+        <label for="ascending_price">Отсортировать по возрастанию цены</label>
+        <br>
+        <br>
+        <input type="radio" id="descending_price" name="price" value="sorted_by_descending_price">
+        <label for="descending_price">Отсортировать по убыванию цены</label>
+
+        <p>Категория товаров: </p>
+        <input type="radio" id="snowboards" name="category" value="snowboards">
+        <label for="snowboards">Сноуборды</label>
+        <br>
+        <br>
+        <input type="radio" id="ski" name="category" value="ski">
+        <label for=ski>Горные лыжи</label>
+        <br>
+        <br>
+        <input type="radio" id="clothes" name="category" value="clothes">
+        <label for="clothes">Одежда</label>
+        <br>
+        <br>
+        <input type="submit" value="Найти">
+    </fieldset>
+</form>
+
+
+<Section class="section_products">
+    <div class="products_title">
+        <h3>Результат: </h3>
+    </div>
+    <div class="container_products">
+
+        <div class="cart" th:each="product : ${search_product}">
+            <img class="cart_img" th:src="'/img/' + ${product.imageList[0].getFileName()}">
+            <div class="cart_info">
+                <a class="custom-btn btn-1" th:href="@{/product/info/{id}(id=${product.getId()})}"
+                   th:text="${product.getTitle()}" id="title"></a>
+                <p th:text="'Цена: ' + ${product.getPrice()} + ' ₽'"></p>
+                <div class="btn_add">
+                    <a th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
+                </div>
+            </div>
+        </div>
+        <!--cart-->
+    </div>
+    <!--container_products-->
+
+</Section>
+<hr>
+
+
+<Section class="section_products">
+    <div class="products_title">
+        <h3>Доступные товары: </h3>
+    </div>
+    <div class="container_products">
+
+        <div class="cart" th:each="product : ${products}">
+            <img class="cart_img" th:src="'/img/' + ${product.imageList[0].getFileName()}">
+            <div class="cart_info">
+                <a class="custom-btn btn-1" th:href="@{/product/info/{id}(id=${product.getId()})}"
+                   th:text="${product.getTitle()}" id="title"></a>
+                <p th:text="'Цена: ' + ${product.getPrice()} + ' ₽'"></p>
+                <div class="btn_add">
+                    <a th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
+                </div>
+
+            </div>
+
+        </div>
+        <!--cart-->
+
+
+    </div>
+    <!--container_products-->
+
+</Section>
+
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="foter__inner ">
+
+            <div class="footer__col">
+                <h3 class="footer__col_title">Товары</h3>
+                <ul class="footer__col__list">
+                    <li>Мужские</li>
+                    <li>Женские</li>
+                    <li>Детские</li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__col_title">О нас</h3>
+                <ul class="footer__col__list">
+                    <li>Карьера и вакансии</li>
+                    <li>Спонсоры</li>
+                    <li>Комманда</li>
+                    <li>Запрос каталога/Загрузка</li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__col_title">Служба поддержки</h3>
+                <ul class="footer__col__list">
+                    <li>Свяжитесь с нами</li>
+                    <li>оставка и отслеживание заказов</li>
+                    <li>Возвраты</li>
+                    <li>Гарантия</li>
+                    <li>Запасные части и детали</li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__col_title">Информация</h3>
+
+                <form class="subscribe" action="/" method="post">
+                    <input class="subscribe__input" type="text" name="" id="Fname" placeholder="Введите имя">
+                    <button class="subscribe__button" type="submit">Go</button>
+                </form>
+
+                <form class="subscribe" action="/" method="post">
+                    <input class="subscribe__input" type="text" name="" id="Sname" placeholder="Введите фамилию">
+                    <button class="subscribe__button" type="submit">Go</button>
+                </form>
+
+                <form class="subscribe" action="/" method="post">
+                    <input class="subscribe__input" type="email" name="" id="email" placeholder="Введите email">
+                    <button class="subscribe__button" type="submit">Go</button>
+                </form>
+
+                <div class="footer__social">
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>  <!--foter__inner-->
+
+
+        <div class="copyright">
+            <div class="copyright__text">© 2022 Mountains Snowboards</div>
+            <div class="copyright__region">
+                <span class="copyright__flag"></span>
+                <span>Сменить регион</span>
+            </div>
+        </div>
+
+
+    </div>
+    <!--container-->
+
+</footer>
+
+
+<script src="https://kit.fontawesome.com/467ded5ee6.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

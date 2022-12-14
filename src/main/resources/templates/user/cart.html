@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина товаров</title>
+    <link th:href="@{/css/cart.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--<h3>Корзина товаров</h3>-->
+<!--<div th:each="product : ${cart_product}">-->
+<!--    <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>-->
+<!--    <p th:text="'Цена: ' + ${product.getPrice()}"></p>-->
+<!--    <a th:href="@{/cart/delete/{id}(id=${product.getId()})}">Удалить</a>-->
+<!--</div>-->
+<!--<h3 th:text="'Итоговая цена: ' +${price} + ' ₽'"></h3>-->
+<!--<a href="/order/create">Оформить заказ</a>-->
+
+
+<!--<div class="order_title">-->
+<!--    <h3>Корзина товаров:</h3>-->
+<!--</div>-->
+
+<div class="title_block">
+    <div class="main_title">
+        <h3>Корзина товаров:</h3>
+    </div>
+    <div class="btn_out">
+        <a class="btn_out-input" href="/index">В магазин</a>
+    </div>
+</div>
+
+
+<Section class="section_cart">
+    <div class="container_cart">
+
+        <div th:each="product : ${cart_product}">
+            <div class="cart">
+                <img class="cart_img" th:src="'/img/' + ${product.imageList[0].getFileName()}">
+                <div class="cart_info">
+                    <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+                    <p th:text="'Цена: ' + ${product.getPrice()} + ' ₽'"></p>
+                    <div class="btn_del">
+                        <a th:href="@{/cart/delete/{id}(id=${product.getId()})}">Удалить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>   <!--container_orders-->
+
+</Section>
+
+
+<div class="total_title">
+    <h3 th:text="'Итоговая цена: ' +${price} + ' ₽'">Итоговая цена: 449313.0 ₽</h3>
+</div>
+<div class="order">
+    <a href="/order/create">Оформить заказ</a>
+</div>
+
+
+</body>
+</html>

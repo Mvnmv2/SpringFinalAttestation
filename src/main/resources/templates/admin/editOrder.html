@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование статуа заказа</title>
+    <link th:href="@{/css/editOrder.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="container">
+    <div class="title_block">
+        <div class="main_title">
+            <h3>Сменить статус заказа:</h3>
+        </div>
+
+        <div class="btn_out">
+            <a class="btn_out" href="/admin">Назад</a>
+        </div>
+    </div>
+</div>
+
+<form th:method="POST" th:action="@{/admin/orders/{id}(id=${info_order.getId()})}" th:object="${info_order}">
+
+    <div class="status_info" th:each="order:${info_order}">
+        <p th:text="'Заказ №: ' + ${info_order.getNumber()}">Заказ №: 84950997-6cea-4bef-b17f-d7e3ce83f436</p>
+        <p th:text="'Товар: ' + ${info_order.getProduct().getTitle()}">Товар: Jones Flagship Snowboard</p>
+        <p th:text="'Сатус заказа: ' + ${info_order.getStatus()}">Сатус заказа: Оформлен</p>
+        <div class="status_change">
+            <label for="status">Выберите статус: </label>
+            <select id="status" name="status">
+                <option th:each="state : ${T(com.example.springsecurityproject.enums.Status).values()}" th:value="${state}" th:text="${state}"></option>
+            </select>
+            <!--    <a class="label"  href="/admin/orders" style="width:100%;">Просмотр</a>-->
+            <button class="btn" type="submit">Редактировать</button>
+        </div>
+
+    </div>
+
+</form>
+
+
+</body>
+</html>
